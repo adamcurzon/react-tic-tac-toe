@@ -22,11 +22,11 @@ function App() {
   );
   const [gameBoard, setGameBoard] = useState(EMPTY_BOARD);
 
-  function currentPlayer() {
+  function currentPlayer(): String {
     return currentGameState == GAME_STATE.X_TO_PLAY ? PLAYER_X : PLAYER_O;
   }
 
-  function isGameOver() {
+  function isGameOver(): Boolean {
     return currentGameState >= GAME_STATE.X_WINNER;
   }
 
@@ -51,13 +51,16 @@ function App() {
     gameBoard: Array<String>,
     squareId: number,
     player: String
-  ) {
+  ): Array<String> {
     gameBoard[squareId] = player;
     setGameBoard(JSON.stringify(gameBoard));
     return gameBoard;
   }
 
-  function isSquareVisited(gameBoard: Array<String>, squareId: number) {
+  function isSquareVisited(
+    gameBoard: Array<String>,
+    squareId: number
+  ): boolean {
     return gameBoard[squareId] != null;
   }
 
@@ -97,7 +100,7 @@ function App() {
     return false;
   }
 
-  function isTie(gameBoard: Array<String>) {
+  function isTie(gameBoard: Array<String>): boolean {
     if (gameBoard.length !== SQUARE_COUNT) {
       return false;
     }
@@ -109,7 +112,7 @@ function App() {
     return true;
   }
 
-  function handleSquareClick(squareId: number) {
+  function handleSquareClick(squareId: number): void {
     var currentGameBoard = JSON.parse(gameBoard);
 
     if (isGameOver() || isSquareVisited(currentGameBoard, squareId)) {
