@@ -23,7 +23,7 @@ function App() {
   const [gameBoard, setGameBoard] = useState(EMPTY_BOARD);
 
   function currentPlayer() {
-    return currentGameState == GAME_STATE.O_TO_PLAY ? PLAYER_X : PLAYER_O;
+    return currentGameState == GAME_STATE.X_TO_PLAY ? PLAYER_X : PLAYER_O;
   }
 
   function isGameOver() {
