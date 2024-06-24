@@ -154,6 +154,12 @@ function App() {
   return (
     <>
       <h1>React Tic Tac Toe</h1>
+      <h2>
+        By{" "}
+        <a href="https://github.com/adamcurzon" target="_blank">
+          Adam Curzon
+        </a>
+      </h2>
       <h3 className="status">{status()}</h3>
       <div className="gameboard">
         {[...Array(SQUARE_COUNT)].map((_, squareId) => (
